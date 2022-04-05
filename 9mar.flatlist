@@ -1,0 +1,74 @@
+import { SafeAreaView, Text, FlatList, StyleSheet, View } from 'react-native'
+import React from 'react'
+import { render } from 'react-native/Libraries/Renderer/implementations/ReactNativeRenderer-prod'
+import axios from 'axios';
+
+const data = [
+  {
+    name: 'Kamal',
+    age: 22,
+    department: 'React-Native',
+    empId: 7834,
+    address: 'Sec-58, Noida-201301'
+  },
+  {
+    name: 'Abhishek',
+    age: 23,
+    department: 'React-Native',
+    empId: 8963,
+    address: 'Sec-58, Noida-201301'
+  },
+  {
+    name: "Ashutosh",
+    age: 24,
+    empId: 7878,
+    department: 'React-Native',
+    address: 'Sec 58, Noida, 201301'
+  },
+  {
+    name: 'Akash',
+    age: 22,
+    department: 'React-Native',
+    empId: 8754,
+    address: 'Sec-58, Noida-201301'
+  }];
+
+const renderItem = ({ item }) => {
+  return (
+    <View>
+      <Text style={styles.textStyle}>{item.name}</Text>
+      <Text>
+        {item.empId}
+      </Text>
+    </View>
+  )
+}
+export default function App() {
+  render()
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+      // keyExtractor={(item) => item.empId}
+      // extraData={selectedId}
+      />
+    </SafeAreaView>
+  );
+
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+
+  },
+  textStyle: {
+    fontSize: 20
+  }
+})
+
+
+
+
+

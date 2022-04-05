@@ -1,0 +1,35 @@
+{/* <FlatList
+            ListEmptyComponent={() => {
+              return (<Text>Waiting
+              </Text>)
+            }}
+            data={this.state.data}
+            renderItem={({ item }) => {
+              return (<View style={styles.body}>
+                <ImageBackground style={{ color: 'red', resizeMode: "cover" }}
+                  source={{ uri: 'https://i.pinimg.com/550x/94/fb/9e/94fb9e94f0db7e3d429df2d9c64527d2.jpg' }}>
+
+                </ImageBackground>
+                <Image style={styles.image}
+                  source={{ uri: item.urlToImage }}
+                />
+                <Text style={styles.idText}>{item.source.name}</Text>
+                <View>
+                  <Text style={styles.innerText}>{item.author}</Text>
+                  <Text style={styles.innerText}>{item.title}</Text>
+                  <Text numberOfLines={this.state.len}
+                    style={styles.innerText}>
+                    {item.description}</Text>
+                  <TouchableOpacity>
+                    <Text style={styles.text1} onPress={() => {
+                      this.updatedView()
+                    }}>
+                      {this.state.newText}
+                    </Text>
+                  </TouchableOpacity>
+
+                </View>
+              </View>
+              )
+            }}
+          /> */}

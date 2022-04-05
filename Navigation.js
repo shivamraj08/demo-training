@@ -27,7 +27,7 @@ const HomeScreen = ({ navigation }) => {
         <Button
             title="Go to Jane's profile"
             onPress={() =>
-                navigation.navigate('Profile', { name: 'Jane',place:'Noida' })
+                navigation.navigate('Profile', { name: 'Jane' })
             }
         />
     );
@@ -36,7 +36,7 @@ const ProfileScreen = ({ navigation, route }) => {
     return (
         <View style={{flexDirection:'row'}}>
             <Text>This is {route.params.name}'s profile </Text>
-            <Text>from {route.params.place} </Text>
+            
             <Button
                 title='Search'
                 onPress={() =>
@@ -59,32 +59,36 @@ const SearchScreen = ({ navigation, route }) => {
     )
 }
 
-const LoginScreen = (navigation) => {
+const LoginScreen = ({navigation}) => {
     return (<View>
         <Text> This is Login Screen
             <Button
             title='Sign Up'
             onPress={()=>{
-                navigation.navigate('Sign Up')
+                navigation.navigate('SignUp',{name:'rishabh'})
             }}
 
             />
         </Text>
+        
     </View>)
 }
 
-const SignUpScreen = (navigation) => {
+const SignUpScreen = ({navigation,route}) => {
     return (
     <View>
         <Text>
         This is Sign up Screen
     </Text>
     <Button
-    title='Registration Successfully'
+    title='Go to profile again'
     onPress={()=>{
-        navigation.navigate('SearchScreen')
+        navigation.push('Profile',{name:'ritesh'})
     }}
     />
+    <Text>
+        {route.params.name}
+    </Text>
         </View>)
 }
 

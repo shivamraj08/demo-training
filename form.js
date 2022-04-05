@@ -1,6 +1,11 @@
-import { Button, View, Text, StyleSheet, TextInput, TouchableOpacity, FlatList, Image, SafeAreaView, Modal } from 'react-native'
+// import { Button, View, Text, StyleSheet, TextInput, TouchableOpacity, FlatList, Image, SafeAreaView, Modal } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native';
 import React, { useState, useRef } from 'react'
 import { render } from 'react-native/Libraries/Renderer/implementations/ReactNativeRenderer-prod';
+
+// const MyStack=()=>{
+//   navigation.navigate("Logi")
+// }
 
 export default function form() {
   const [email, setEmail] = useState('')

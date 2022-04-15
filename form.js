@@ -1,13 +1,10 @@
-// import { Button, View, Text, StyleSheet, TextInput, TouchableOpacity, FlatList, Image, SafeAreaView, Modal } from 'react-native'
+import { Button, View, Text, StyleSheet, TextInput, TouchableOpacity, FlatList, Image, SafeAreaView, Modal } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import React, { useState, useRef } from 'react'
 import { render } from 'react-native/Libraries/Renderer/implementations/ReactNativeRenderer-prod';
 
-// const MyStack=()=>{
-//   navigation.navigate("Logi")
-// }
 
-export default function form() {
+export default function Form({navigation}) {
   const [email, setEmail] = useState('')
   const [emailValidError, setEmailValidError] = useState('');
   const [name, setName] = useState('')
@@ -19,6 +16,7 @@ export default function form() {
   const [update, setUpdateCheck] = useState(false)
   const [toggle, setToggle] = useState('Add Details');
   const [modalOpen, setModalOpen] = useState(false);
+  
 
 
   const validName = val => {
@@ -83,7 +81,7 @@ export default function form() {
 
   const renderItem = ({ item }) => {
     return (
-      <SafeAreaView>
+      <SafeAreaView style={{flex:1}}>
         <View style={styles.card}>
           <View style={styles.firstContainer}>
             <View style={{ width: "80%" }}>
@@ -121,7 +119,7 @@ export default function form() {
   }
 
   return (
-    <View >
+    <View style={{flex:1}} >
       <View style={styles.mainContainer}>
         <Text style={styles.header}>{'Form'}</Text>
       </View>
@@ -286,7 +284,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginLeft: 35,
     marginBottom: 200,
-    position: 'absolute'
+    position: 'absolute',
+    
   },
   emailError: {
     color: 'red'
@@ -299,9 +298,10 @@ const styles = StyleSheet.create({
     height: 15
   },
   cancelButton:{
-    height:30,
-    width:30,
-    borderRadius:5,
+    height:25,
+    width:25,
+    borderRadius:50,
     marginLeft:350,
+    bottom:60
   }
 })

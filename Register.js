@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, Image, ImageBackground, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
 
 
 
@@ -13,6 +14,7 @@ export default function App() {
     const [handlepass, sethandlePass] = useState('');
     const [check, setCheck] = useState(true)
     // const [matched,setmatched]=useState('');
+    const navigation = useNavigation();
 
 
 
@@ -65,7 +67,7 @@ export default function App() {
                 <View style={styles.emailText}>
                     <Text > {'Name'}</Text>
                     <TextInput
-                        style={{ margin: 3 }}
+                        style={styles.placeHolder}
                         placeholder='Enter your Name'
 
                     />
@@ -75,6 +77,7 @@ export default function App() {
                 <View style={styles.emailText}>
                     <Text > {'Email'}</Text>
                     <TextInput
+                        style={styles.placehHolder}
                         placeholder=' Enter your mail'
                         value={email}
                         autoCorrect={false}
@@ -90,11 +93,12 @@ export default function App() {
 
 
 
-                <View style={styles.passText}>
+                <View style={styles.emailText}>
                     <Text>
                         {' Password'}
                     </Text>
                     <TextInput
+                        style={styles.placehHolder}
                         placeholder=' Create your Password'
                         secureTextEntry={!hide ? true : false}
                         onChangeText={value => {
@@ -118,11 +122,12 @@ export default function App() {
                 {handlepass ? <Text style={{ color: 'red' }}>{handlepass}</Text> : null}
 
 
-                <View style={styles.passText}>
+                <View style={styles.emailText}>
                     <Text>
                         {' Confirm Password'}
                     </Text>
                     <TextInput
+                        style={styles.placehHolder}
                         placeholder=' Re-enter your Password'
                         secureTextEntry={!confirmhide ? true : false}
                         onChangeText={value => {
@@ -177,14 +182,14 @@ export default function App() {
 
 
                 <View style={styles.notReg}>
-                    <TouchableOpacity>
-                        <Text style={styles.textNotReg}>
-                            {'Already have an account?'}
-                            <Text style={styles.textReg}>
-                                {'Login'}
-                            </Text>
+
+                    <Text style={styles.textNotReg}>
+                        {'Already have an account?'}
+                        <Text onPress={() => { navigation.navigate('Login') }} style={styles.textReg}>
+                            {'Login'}
                         </Text>
-                    </TouchableOpacity>
+                    </Text>
+
                 </View>
 
 
@@ -200,17 +205,16 @@ const styles = StyleSheet.create({
         margin: '1%'
     },
     innerContainer: {
-        marginBottom: 1
+        marginBottom: 1,
+        marginTop: 1
     },
     textStyle: {
         fontSize: 30,
         fontWeight: 'bold',
         marginLeft: '4%',
         borderColor: 'grey',
-
-
-    },maincontainer:{
-        marginTop:180
+    }, maincontainer: {
+        marginTop: 110
     },
     header: {
         fontSize: 20,
@@ -221,26 +225,20 @@ const styles = StyleSheet.create({
         fontSize: 15,
         marginLeft: '4%',
         margin: '1%',
-
-
-
     },
     imagebg: {
-        height: 230,
+        height: 165,
         width: 400,
         marginLeft: '3%',
-        position:'absolute'
-
+        position: 'absolute'
     },
     emailText: {
-        height: '9%',
-        borderRadius: 1,
-        margin: 10, borderWidth: 1,
+        height: '10%',
+        borderRadius: 2,
+        margin: 10, borderWidth: 0.2,
         borderColor: 'grey',
-        padding: 12
-
+        padding: 9,
     },
-
     regButton: {
         fontSize: 20,
         fontWeight: '600',
@@ -253,7 +251,7 @@ const styles = StyleSheet.create({
     },
     textNotReg: {
         textAlign: 'center',
-        fontSize: 18,
+        fontSize: 16,
         margin: '3%',
         color: 'grey'
     },
@@ -267,19 +265,10 @@ const styles = StyleSheet.create({
         right: 20,
         top: 20,
     },
-    passText: {
-        height: '9%',
-        margin: '2%',
-        borderRadius: 1,
-        borderWidth: 1,
-        borderColor: 'grey',
-        padding: 12
-
-    },
     notReg: {
-        marginTop: '1%',
-        paddingBottom: 20,
-        marginTop:40
+        // marginTop: '1%',
+        // paddingBottom: 20,
+        marginTop: 2
     },
     checkImg: {
         flexDirection: 'row',
@@ -290,6 +279,8 @@ const styles = StyleSheet.create({
         marginLeft: 5,
         fontSize: 16,
         color: 'grey'
-    }
-
+    },
+    placeHolder: {
+        margin: 3,
+    },
 })

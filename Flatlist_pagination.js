@@ -28,7 +28,7 @@ export default function Flatlist_pagination() {
     }
 
     const EndButton = () => {
-        listViewRef.scrollToEnd({ animated: true })
+        listViewRef.scrollToEnd({ animated: false })
     }
 
     const TopButton = () => {
@@ -52,8 +52,8 @@ export default function Flatlist_pagination() {
                 }
                 data={myData}
                 renderItem={({ item }) => {
-                    return (<View style={styles.body,
-                     { backgroundColor: color[i++ % color.length] }}>
+                    return (<View style={styles.body}>
+                    {/* //  { backgroundColor: color[i++ % color.length] }} */}
 
                         <Text style={styles.idText}>{item.id}</Text>
 
